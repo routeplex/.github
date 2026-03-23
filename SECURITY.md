@@ -19,13 +19,11 @@ Email [security@routeplex.com](mailto:security@routeplex.com) with:
 
 ## Scope
 
-This policy covers all RoutePlex repositories:
+This policy covers all public RoutePlex repositories:
 
 - `routeplex-python` (Python SDK)
 - `routeplex-node` (Node.js SDK)
 - `routeplex-examples` (Example code)
-- `routeplex-backend` (API server)
-- `routeplex-web` (Dashboard)
 
 ## Supported Versions
 
