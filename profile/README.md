@@ -6,9 +6,10 @@
 
 [![Website](https://img.shields.io/badge/Website-routeplex.com-6366f1)](https://routeplex.com)
 [![Docs](https://img.shields.io/badge/Docs-Getting%20Started-green)](https://routeplex.com/docs)
+[![PyPI](https://img.shields.io/pypi/v/routeplex?label=PyPI&color=blue)](https://pypi.org/project/routeplex/)
+[![npm](https://img.shields.io/npm/v/@routeplex/node?label=npm&color=red)](https://www.npmjs.com/package/@routeplex/node)
 [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2)](https://discord.gg/BaFcXQJA)
 [![X](https://img.shields.io/badge/X-@routeplex-000000)](https://x.com/routeplex)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-RoutePlex-0A66C2)](https://www.linkedin.com/company/routeplex)
 
 </div>
 
@@ -27,11 +28,36 @@ RoutePlex is a unified API gateway that gives you access to **22+ AI models** fr
 - **OpenAI SDK Compatible** — Drop-in replacement: change the base URL and you're done
 - **Cost Governance** — Budgets, usage caps, and per-request cost tracking out of the box
 
+### SDKs
+
+```bash
+pip install routeplex          # Python
+npm install @routeplex/node    # Node.js
+```
+
+```python
+from routeplex import RoutePlex
+
+client = RoutePlex(api_key="rp_your_key")
+response = client.chat("Explain quantum computing", strategy="quality")
+print(response.output)
+```
+
+```javascript
+const { RoutePlex } = require("@routeplex/node");
+
+const client = new RoutePlex({ apiKey: "rp_your_key" });
+const res = await client.chat("Explain quantum computing", { strategy: "quality" });
+console.log(res.output);
+```
+
 ### Repositories
 
 | Repo | Description |
 |------|-------------|
-| [routeplex-examples](https://github.com/routeplex/routeplex-examples) | Working code examples in Python, JavaScript, TypeScript, and cURL |
+| [`routeplex-python`](https://github.com/routeplex/routeplex-python) | Official Python SDK ([PyPI](https://pypi.org/project/routeplex/)) |
+| [`routeplex-node`](https://github.com/routeplex/routeplex-node) | Official Node.js SDK ([@routeplex/node](https://www.npmjs.com/package/@routeplex/node)) |
+| [`routeplex-examples`](https://github.com/routeplex/routeplex-examples) | Working examples in Python, JS, TypeScript, and cURL |
 
 ### Quick Start
 
@@ -45,11 +71,18 @@ curl https://api.routeplex.com/api/v1/chat \
 ### Links
 
 - [Documentation](https://routeplex.com/docs)
-- [API Reference](https://routeplex.com/api-reference)
+- [API Playground](https://routeplex.com/docs/api-reference/playground)
 - [Models](https://routeplex.com/models)
 - [Pricing](https://routeplex.com/pricing)
-- [Blog](https://routeplex.com/blog)
 - [Changelog](https://routeplex.com/changelog)
+
+### Contributing
+
+We welcome contributions! See our [Contributing Guide](https://github.com/routeplex/.github/blob/main/CONTRIBUTING.md) for details.
+
+- **Found a bug?** [Open an issue](https://github.com/routeplex/.github/issues) with a reproduction
+- **Feature idea?** [Open a feature request](https://github.com/routeplex/.github/issues)
+- **Security issue?** Email [security@routeplex.com](mailto:security@routeplex.com) — do not open a public issue
 
 ---
 
