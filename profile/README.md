@@ -21,7 +21,7 @@ RoutePlex is a unified API gateway that gives you access to **22+ AI models** fr
 
 ### Why RoutePlex?
 
-- **Smart Routing** — Automatically route to the best model based on cost, speed, quality, or a balanced trade-off
+- **Prompt-Based Auto-Routing** — RoutePlex analyzes your prompt and picks the best model automatically. Or override with a strategy (cost, speed, quality, balanced)
 - **Built-in Failover** — If a provider goes down, requests are automatically rerouted to a fallback model
 - **Web-Augmented AI** — Real-time web search and URL fetching are auto-detected and injected into LLM context
 - **Content Safety** — Three-layer moderation pipeline screens every request and response
@@ -39,16 +39,26 @@ npm install @routeplex/node    # Node.js
 from routeplex import RoutePlex
 
 client = RoutePlex(api_key="rp_your_key")
-response = client.chat("Explain quantum computing", strategy="quality")
+
+# Auto-routing — analyzes your prompt, picks the best model
+response = client.chat("Explain quantum computing")
 print(response.output)
+
+# Or override with a strategy
+response = client.chat("Summarize this article", strategy="cost")
 ```
 
 ```javascript
 const { RoutePlex } = require("@routeplex/node");
 
 const client = new RoutePlex({ apiKey: "rp_your_key" });
-const res = await client.chat("Explain quantum computing", { strategy: "quality" });
+
+// Auto-routing — analyzes your prompt, picks the best model
+const res = await client.chat("Explain quantum computing");
 console.log(res.output);
+
+// Or override with a strategy
+const fast = await client.chat("What is 2+2?", { strategy: "speed" });
 ```
 
 ### Repositories
@@ -62,10 +72,11 @@ console.log(res.output);
 ### Quick Start
 
 ```bash
+# Auto-routing — RoutePlex analyzes your prompt and picks the best model
 curl https://api.routeplex.com/api/v1/chat \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
-  -d '{"messages": [{"role": "user", "content": "Hello!"}], "mode": "routeplex-ai", "strategy": "balanced"}'
+  -d '{"messages": [{"role": "user", "content": "Hello!"}], "mode": "routeplex-ai"}'
 ```
 
 ### Links
